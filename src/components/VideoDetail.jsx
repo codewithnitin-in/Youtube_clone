@@ -8,9 +8,25 @@ import { Videos, Loader } from "./";
 import { fetchFormAPI } from "../utils/fetchFromAPI";
 
 const VideoDetail = () => {
+  const [showScrollUp, setShowScrollUp] = useState(false);
   const [videoDetail, setVideoDetail] = useState(null);
   const [videos, setVideos] = useState(null);
   const { id } = useParams();
+
+  const handlePlayerClick = () => {
+    setShowScrollUp(true);
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
+  const handleScrollUpClick = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
 
   useEffect(() => {
     fetchFormAPI(`videos?part=snippet,statistics&id=${id}`)
@@ -29,7 +45,19 @@ const VideoDetail = () => {
       <Stack direction={{ xs: "column", md: "row" }}>
         <Box flex={1}>
           <Box sx={{ width: "100%", position: "sticky", top: "86px" }}>
-            <ReactPlayer url={`https://www.youtube.com/watch?v=${id}`} className="react-player" controls />
+            <ReactPlayer
+              url={`https://www.youtube.com/watch?v=${id}`}
+              className="react-player"
+              controls
+              onClick={handlePlayerClick}
+            />
+
+            {showScrollUp && (
+              <button onClick={handleScrollUpClick}>
+                Scroll Up
+              </button>
+            )}
+
             <Typography color="#fff" variant="h5" fontWeight="bold" p={2}>
               {title}
             </Typography>
