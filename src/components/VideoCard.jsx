@@ -5,15 +5,32 @@ import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 
 import { demoThumbnailUrl, demoVideoUrl, demoVideoTitle, demoChannelUrl, demoChannelTitle } from "../utils/constants";
 
+
+
+function scrollship() {
+  
+    setTimeout(function () {
+      // Hide the address bar!
+      window.scrollTo(0, 1);
+    }, 4000)}
+
 const VideoCard = ({ video: { id: { videoId }, snippet } }) => (
   <Card sx={{ width: { xs: '100%', sm: '358px', md: "320px", }, boxShadow: "none", borderRadius: 0 }}>
-    <Link to={videoId ? `/video/${videoId}` : `/video/cV2gBU6hKfY`}>
+{/*  */}
+
+
+
+
+    <Link to={videoId ? `/video/${videoId}` : `/video/cV2gBU6hKfY`} onClick={scrollship}>
       <CardMedia image={snippet?.thumbnails?.high?.url || demoThumbnailUrl} alt={snippet?.title}
         sx={{ width: { xs: '100%', sm: '358px' }, height: 180 }}
       />
     </Link>
+
+
+    {/*  */}
     <CardContent sx={{ backgroundColor: "#1E1E1E", height: '106px' }}>
-      <Link to={videoId ? `/video/${videoId}` : demoVideoUrl} >
+      <Link to={videoId ? `/video/${videoId}` : demoVideoUrl} onClick={scrollship}>
         <Typography variant="subtitle1" fontWeight="bold" color="#FFF">
           {snippet?.title.slice(0, 60) || demoVideoTitle.slice(0, 60)}
         </Typography>
