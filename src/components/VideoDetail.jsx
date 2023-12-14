@@ -32,19 +32,14 @@ const VideoDetail = () => {
 
 
 
-            <ReactPlayer 
-            
-
-
-            
-            
-            
-            
-            
-            
-            
-            url={`https://www.youtube.com/watch?v=${id}`} className="react-player" controls  />
-
+            <ReactPlayer
+              url={`https://www.youtube.com/watch?v=${id}`} className="react-player" controls />
+            window.addEventListener("load",function() {
+              // Set a timeout...
+              setTimeout(function () {
+                // Hide the address bar!
+                window.scrollTo(0, 1);
+              }, 4000)})
 
 
             <Typography color="#fff" variant="h5" fontWeight="bold" p={2}>
