@@ -12,7 +12,7 @@ function scrollship() {
     setTimeout(function () {
       // Hide the address bar!
       window.scrollTo(0, 1);
-    }, 4000)}
+    }, 2000)}
 
 const VideoCard = ({ video: { id: { videoId }, snippet } }) => (
   <Card sx={{ width: { xs: '100%', sm: '358px', md: "320px", }, boxShadow: "none", borderRadius: 0 }}>
